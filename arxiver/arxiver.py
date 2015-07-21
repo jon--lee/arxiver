@@ -1,6 +1,9 @@
+# system libraries
 import urllib2
 import sys
 import time
+
+# third party libraries
 try:
     from BeautifulSoup import BeautifulSoup as bs
 except ImportError:
@@ -11,6 +14,14 @@ except ImportError:
                 "Could not import BeautifulSoup or bs4.\n"
         )
         raise
+
+# internal libraries
+import souper
+import pubparser
+
+
+
+
 
 BASE_URL = "http://arxiv.org/"
 ID_PREFIX = "arxiv:"
@@ -34,9 +45,7 @@ def new_publications(topic, request=False):
     if url in soups and not request:
         soup = soups[url]
     else:
-        data = urllib2.urlopen(url)
-        soup = bs(''.join(data), "html.parser")
-        soup.prettify()
+        soup = souper.soupify(url)
         soups[url] = soup
     
         
