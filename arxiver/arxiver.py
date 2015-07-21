@@ -4,16 +4,6 @@ import sys
 import time
 
 # third party libraries
-"""try:
-    from BeautifulSoup import BeautifulSoup as bs
-except ImportError:
-    try:
-        from bs4 import BeautifulSoup as bs
-    except ImportError:
-        sys.stderr.write(
-                "Could not import BeautifulSoup or bs4.\n"
-        )
-        raise"""
 
 # internal libraries
 import souper
@@ -71,7 +61,7 @@ def new_publications(topic, request=False):
         page_link = BASE_URL[:-1] + arxiv['href']
         
         # pdf link can be deduced by using arxiv_id
-        pdf_link = BASE_URL[:-1] + "pdf/" + arxiv_id
+        pdf_link = BASE_URL + "pdf/" + arxiv_id
 
         # paper information is actually a sibling
         dd = dt.next_sibling.next_sibling
