@@ -13,7 +13,6 @@ except ImportError:
         )
         raise
 
-
 def soupify(url):
     data = urllib2.urlopen(url)
     soup = bs(''.join(data), "html.parser")

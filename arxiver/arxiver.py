@@ -4,7 +4,7 @@ import sys
 import time
 
 # third party libraries
-try:
+"""try:
     from BeautifulSoup import BeautifulSoup as bs
 except ImportError:
     try:
@@ -13,7 +13,7 @@ except ImportError:
         sys.stderr.write(
                 "Could not import BeautifulSoup or bs4.\n"
         )
-        raise
+        raise"""
 
 # internal libraries
 import souper
