@@ -19,4 +19,4 @@ def soupify(url):
     soup = bs(''.join(data), "html.parser")
     soup.prettify()
     return soup
-    
+
