@@ -27,7 +27,7 @@ def arxiv_id(arxiv):
 
 # page link is given in Abstract element
 def page_link(arxiv, url):
-    page_link = url + arxiv['href']
+    page_link = url + arxiv['href'][1:]
     return page_link
 
 
@@ -37,12 +37,21 @@ def title():
     return title
 
 
+# There may not be an abstract, there may not be any text in it
+def abstract():
+    abstract = None
+    p = dd.div.p
+    if p is not None and p.string is not None:
+        abstract = p.string.replace('\n', ' ')
+    return abstract
+
+
 # multiple authors
-def authors():
+def authors(url):
     author_div = dd.find(class_='list-authors')
-        authors = []
-        for a in author_div.find_all('a'):
-            author = { "name": a.string, "link": BASE_URL[:-1] + a['href'] }
-            authors.append(author)                                           # adding list of authors of one paper ie "subauthors"  
-        
+    authors = []
+    for a in author_div.find_all('a'):
+        author = { "name": a.string, "link": url + a['href'][1:] }
+        authors.append(author)                                           # adding list of authors of one paper ie "subauthors"  
+    return authors
 

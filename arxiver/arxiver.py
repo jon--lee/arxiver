@@ -1,5 +1,6 @@
 # system libraries
 import urllib2
+import urllib
 import sys
 import time
 
@@ -7,12 +8,13 @@ import time
 
 # internal libraries
 import souper
-import pubparser
+import pubparser as pp
+import export
 
 
 
 
-
+API_URL = "http://export.arxiv.org/api/query?"
 BASE_URL = "http://arxiv.org/"
 ID_PREFIX = "arxiv:"
 
@@ -46,40 +48,25 @@ def new_publications(topic, request=False):
     # looking at it side by side with the html source from arxiv.
     for dt in soup.find_all('dt'):
         
-        # find the number of the new publication
-        num_str = dt.a.string
-        num = int(num_str[1:-1])
+        pp.dt = dt
         
-        # lots of information is stored in the Abstract element
-        # get the element
-        arxiv = dt.find(title='Abstract')
-        
-        # id is going to be two numbers separated by point with a prefix
-        arxiv_id = arxiv.string[len(ID_PREFIX):]
+        num = pp.num()
 
-        # page link is given in Abstract element
-        page_link = BASE_URL[:-1] + arxiv['href']
+        arxiv = pp.arxiv()
+        arxiv_id = pp.arxiv_id(arxiv)
+        page_link = pp.page_link(arxiv, BASE_URL)
         
         # pdf link can be deduced by using arxiv_id
         pdf_link = BASE_URL + "pdf/" + arxiv_id
 
-        # paper information is actually a sibling
-        dd = dt.next_sibling.next_sibling
-        title = dd.find(class_="descriptor").next_sibling[1:].rstrip()       # trim the space before the title
+        # paper information is actually a sibling    
+        pp.dd = dt.next_sibling.next_sibling
 
-        # There may not be an abstract, there may not be any text in it
-        abstract = None
-        p = dd.div.p
-        if p is not None and p.string is not None:
-            abstract = p.string.replace('\n', ' ')
+        title = pp.title()
+        abstract = pp.abstract()
+        authors = pp.authors(BASE_URL)
         
-        # Multiple authors
-        author_div = dd.find(class_='list-authors')
-        authors = []
-        for a in author_div.find_all('a'):
-            author = { "name": a.string, "link": BASE_URL[:-1] + a['href'] }
-            authors.append(author)                                           # adding list of authors of one paper ie "subauthors"  
-        
+
         # put it all together in dictionary
         papers.append(
             {
@@ -95,11 +82,23 @@ def new_publications(topic, request=False):
     
     return papers
 
-def search(query):
+
+
+def search(query, max_results=30):
     """
     returns results of api search queries
     @param query
     """
+
+    params = {
+        "search_query": query,
+        "max_results": max_results
+    }
+    url = API_URL + urllib.urlencode(params)
+    data = urllib.urlopen(url)
+    
+    # returned parsed xml from page
+    return export.parse_query(data) 
 
 
 def get_valid_topics():
@@ -109,9 +108,3 @@ def get_valid_topics():
     """
     
 
-
-pubs = new_publications("math")
-pub = pubs[30]
-for key in pub:
-    print ""
-    print key + ": " + str(pub[key])
