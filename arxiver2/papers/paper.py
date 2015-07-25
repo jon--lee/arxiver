@@ -15,15 +15,9 @@
 
 class Paper(object):
     def __init__(self, **kwargs):
-        self.title = kwargs['title']
-        self.abstract = kwargs['abstract']
-        self.arxiv_id = kwargs['arxiv_id']
-        self.pdf = kwargs['pdf']
-        self.page = kwargs['page']
-        self.authors = kwargs['authors']
-
-
-
-
-paper = Paper(title='this is my title', abstract='this is my abstract')
-print paper.abstract
+        self.title = kwargs.get('title')
+        self.abstract = kwargs.get('abstract')
+        self.arxiv_id = kwargs.get('arxiv_id')
+        self.pdf = kwargs.get('pdf')
+        self.page = kwargs.get('page')
+        self.authors = kwargs.get('authors')

@@ -17,16 +17,17 @@ class Parser(object):
     # url for processing with other functions
     # @param url        provide the base url only (e.g. http://www.google.com/)
     #                   full urls will be constructed by implemented classes
-    def __init__(url):
+    def __init__(self, url):
         self.url = url
 
     # soupify should make use of urllib in order to retrieve
     # data from the link and convert that raw data into a data
     # structure which can then be parsed
-    def soupify(*args):
+    def soupify(self, *args):
+        raise NotImplementedError
 
     # parse should parse the entire soup data structure
     # identify useful information and pack it into
     # a more useable and "interfaceable" data structure
-    def parse(*args):
+    def parse(self, *args):
         raise NotImplementedError

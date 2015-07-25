@@ -1,1 +1,1 @@
-from parsers import Parser
+from parsers import NewPubl
