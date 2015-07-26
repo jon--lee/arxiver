@@ -4,8 +4,8 @@ setup(
         name ='arxiver',
         version='0.0.1',
         description='unofficial API tool for arxiv.org scientific publications',
-        author='Jonathan N. Lee'
-        author_email='jonathan_lee@berkeley.edu'.
+        author='Jonathan N. Lee',
+        author_email='jonathan_lee@berkeley.edu',
         url='https://github.com/jon--lee/arxiver',
         license='MIT',
         classifiers=[
@@ -18,6 +18,6 @@ setup(
 	    'Programming Language :: Python',
 	    'Programming Language :: Python :: 2.7',
             ],
-        install_requirements['beautifulsoup4']
+        install_requires=['beautifulsoup4'],
         packages=find_packages()
 )

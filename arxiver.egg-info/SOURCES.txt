@@ -1,0 +1,15 @@
+README.rst
+setup.py
+arxiver/__init__.py
+arxiver/arxiver.py
+arxiver.egg-info/PKG-INFO
+arxiver.egg-info/SOURCES.txt
+arxiver.egg-info/dependency_links.txt
+arxiver.egg-info/requires.txt
+arxiver.egg-info/top_level.txt
+arxiver/papers/__init__.py
+arxiver/papers/paper.py
+arxiver/parsers/__init__.py
+arxiver/parsers/new_publ.py
+arxiver/parsers/parser.py
+arxiver/parsers/search.py

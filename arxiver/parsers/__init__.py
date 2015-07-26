@@ -1,3 +1,3 @@
-from parser import Parser
-from new_publ import NewPubl
-from search import Search
+from parser import *
+from new_publ import *
+from search import *

@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 
 # internal libraries
 from parser import Parser
-from papers import Paper
+from arxiver.papers import Paper
 # third party libraries
 
 

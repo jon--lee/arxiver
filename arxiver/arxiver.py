@@ -9,6 +9,7 @@
 
 # system libraries
 # internal libraries
+import papers
 from parsers import NewPubl
 from parsers import Search
 # third party libraries

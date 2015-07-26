@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: arxiver
+Version: 0.0.1
+Summary: unofficial API tool for arxiv.org scientific publications
+Home-page: https://github.com/jon--lee/arxiver
+Author: Jonathan N. Lee
+Author-email: jonathan_lee@berkeley.edu
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7

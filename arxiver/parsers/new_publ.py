@@ -9,7 +9,7 @@
 # system libraries
 import urllib2
 # internal libraries
-from papers import Paper
+from arxiver.papers import Paper
 from parser import Parser
 
 # third party libraries
