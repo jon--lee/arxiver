@@ -24,8 +24,4 @@ def search(search_query, max_results=30):
     soup = parser.soupify('electron', max_results)
     return parser.parse(soup)
 
-newpubs = search('electron')
-for newpub in newpubs:
-    print newpub.title
-    print newpub.abstract
-    print ""
+
