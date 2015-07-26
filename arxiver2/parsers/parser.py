@@ -23,6 +23,7 @@ class Parser(object):
     # soupify should make use of urllib in order to retrieve
     # data from the link and convert that raw data into a data
     # structure which can then be parsed
+    # PLEASE DO NOT MAKE EXTRANEOUS CALLS TO THIS FUNCTION
     def soupify(self, *args):
         raise NotImplementedError
 
