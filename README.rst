@@ -1,4 +1,4 @@
-arxiver 0.0.1
+arxiver 0.0.2
 *************
 
 arxiver is an unoffical API for Cornell's arxiv.org. This package allows access for search results and new publications in various topics.

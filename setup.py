@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
         name ='arxiver',
-        version='0.0.1',
+        version='0.0.2',
         description='unofficial API tool for arxiv.org scientific publications',
         author='Jonathan N. Lee',
         author_email='jonathan_lee@berkeley.edu',

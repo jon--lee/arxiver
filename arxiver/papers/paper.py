@@ -10,6 +10,7 @@
 #
 
 # system libraries
+import json
 # internal libraries
 # third party libraries
 
@@ -21,3 +22,18 @@ class Paper(object):
         self.pdf = kwargs.get('pdf')
         self.page = kwargs.get('page')
         self.authors = kwargs.get('authors')
+
+    def __str__(self):
+        return json.dumps(
+                {
+                    "title": self.title,
+                    "abstract": self.abstract,
+                    "arxiv_id": self.arxiv_id,
+                    "pdf": self.pdf,
+                    "page": self.page,
+                    "authors": self.authors
+                }
+        )
+
+    def __repr__(self):
+        return self.__str__()
