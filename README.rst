@@ -1,7 +1,7 @@
 arxiver 0.0.1
 *************
 
-**arxiver is an unoffical API for Cornell's arxiv.org. arxiver returns search results new publications in various topics**
+arxiver is an unoffical API for Cornell's arxiv.org. This package allows access for search results and new publications in various topics.
 
 - Contribute on `Github <https://github.com/jon--lee/arxiver>`_
 
@@ -73,3 +73,13 @@ Return a list of fifteen papers given 'electron' as a search term and print the 
     for paper in paper:
         print paper.abstract
     
+:code:`Paper`
+============
+:code:`Paper` objects have the following properties:
+
+- :code:`Paper.title` the title of the paper
+- :code:`Paper.abstract` the abstract or short summary
+- :code:`Paper.arxiv_id` unique string that identifies the arxiv paper
+- :code:`Paper.pdf` link to the pdf file of the whole paper
+- :code:`Paper.page` link to the page on arxiv.org that includes more information
+- :code:`Paper.authors` list of authors reprented by dictionaries with key :code:`'name'` and :code:`'link'`
