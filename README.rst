@@ -1,4 +1,4 @@
-arxiver 0.0.2
+arxiver 0.0.3
 *************
 
 arxiver is an unoffical API for Cornell's arxiv.org. This package allows access for search results and new publications in various topics.
@@ -17,7 +17,7 @@ And then in your Python file add::
     
 There are two main arxiver functions: :code:`get_new_publ` and :code:`search`.
 
-:code:`get_new_publ(topic)`
+get_new_publ(topic)
 ===================
 Returns all new publications posted on arxiv.org given a certain topic in a :code:`Paper` list. 
 
@@ -32,7 +32,7 @@ Returns all new publications posted on arxiv.org given a certain topic in a :cod
     'hep-lat'       # High Energy Physics - Lattice
     'hep-ph'        # High Energy Physics - Phenomenology
     'hep-th'        # High Energy Physics - Theory
-    'math-ph'       # Mathematical PHysics
+    'math-ph'       # Mathematical Physics
     'nlin'          # Nonlinear Sciences
     'nucl-ex'       # Nuclear Experiment
     'nucl-th'       # Nuclear Theory
@@ -55,7 +55,7 @@ Return of list of papers from new publications in Computer Science and print out
     for paper in papers:
         print paper.pdf
 
-:code:`search(query, max_results=30)`
+search(query, max_results=30)
 ====================================
 Return list of :code:`Paper` objects from arxiv given a search query and a maximum number of results.
 
@@ -63,7 +63,7 @@ Return list of :code:`Paper` objects from arxiv given a search query and a maxim
 
 :code:`query`: string search query to pass to arxiv.org
 
-:code:`max_results`: positive integer maxiumum number of results to be returned (default is 30)
+:code:`max_results`: optional positive integer maxiumum number of results to be returned (default is 30)
 
 **Example**
 
@@ -73,7 +73,7 @@ Return a list of fifteen papers given 'electron' as a search term and print the 
     for paper in paper:
         print paper.abstract
     
-:code:`Paper`
+Paper
 ============
 :code:`Paper` objects have the following properties:
 
