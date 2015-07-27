@@ -17,7 +17,7 @@ from parsers import Search
 
 def get_new_publ(topic):
     parser = NewPubl('http://arxiv.org/')
-    soup = parser.soupify('cs')
+    soup = parser.soupify(topic)
     return parser.parse(soup)
 
 def search(search_query, max_results=30):
