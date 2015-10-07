@@ -22,7 +22,7 @@ def get_new_publ(topic):
 
 def search(search_query, max_results=30):
     parser = Search('http://export.arxiv.org/')
-    soup = parser.soupify('electron', max_results)
+    soup = parser.soupify(search_query, max_results)
     return parser.parse(soup)
 
 
